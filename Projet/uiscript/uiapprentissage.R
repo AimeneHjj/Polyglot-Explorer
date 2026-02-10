@@ -19,8 +19,8 @@ fluidPage(
         "Sens",
         "Sens de traduction",
         choices = c(
-          "Français → Anglais",
-          "Anglais → Français"
+          "Thème (Étrangère -> Français)",
+          "Version (Français -> étrangère)"
         )
       ),
       
