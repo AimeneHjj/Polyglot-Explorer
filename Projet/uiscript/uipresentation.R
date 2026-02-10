@@ -48,17 +48,6 @@ ui <- fluidPage(
   div(class = "title-header", h1("Polyglot Explorer")),
   
   tabsetPanel(
-    tabPanel("📈 Analyse Visuelle", 
-             br(),
-             sidebarLayout(
-               sidebarPanel(
-                 sliderInput("bins", "Précision :", 1, 30, 15),
-                 p("Auteur : Brayane SIMO", style = "font-style: italic;")
-               ),
-               mainPanel(plotOutput("graphiqueMots"), tableOutput("tableauApercu"))
-             )
-    ),
-    
     tabPanel("🌟 Notre Mission",
              fluidRow(
                column(10, offset = 1,
