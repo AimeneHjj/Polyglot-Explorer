@@ -1,3 +1,5 @@
+data<-read.csv2("data/tabtrad.csv")
+
 fluidPage(
   
   titlePanel("Apprentissage"),
@@ -10,7 +12,7 @@ fluidPage(
         "Langue",
         "Langue",
         choices = c(
-          "Anglais", "Espagnol", "Allemand",
+          unique(data$Langue), "Espagnol", "Allemand",
           "Italien", "Arabe", "Chinois", "Portugais"
         )
       ),
