@@ -16,6 +16,6 @@ fluidPage(
     tabPanel("Paramétrage", source("uiscript/uiparamétrage.R")),
     
     tabPanel("Crédits",
-             source("uiscript/uicredit"))
+             source("uiscript/uicredit.R"))
   )
 )
