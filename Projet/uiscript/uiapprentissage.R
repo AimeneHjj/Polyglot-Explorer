@@ -1,6 +1,3 @@
-
-library(shiny)
-
 fluidPage(
   
   titlePanel("Apprentissage"),

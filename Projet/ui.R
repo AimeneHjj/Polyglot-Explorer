@@ -12,9 +12,9 @@ fluidPage(
              "Contenu de l'onglet Présentation"),
     
     tabPanel("Apprentissage",
-             "Contenu de l'onglet Apprentissage"),
+             source("uiscript/uiapprentissage.R")),
     
-    tabPanel("Paramétrage", source("uionglet/uiparamétrage.R")),
+    tabPanel("Paramétrage", source("uiscript/uiparamétrage.R")),
     
     tabPanel("Crédits",
              "Contenu de l'onglet Crédits")
