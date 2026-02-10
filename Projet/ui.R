@@ -9,13 +9,13 @@ fluidPage(
   # Création des 4 onglets
   tabsetPanel(
     tabPanel("Présentation",
-             "Contenu de l'onglet Présentation"),
+             source("uiscript/uipresentation.R")),
     
     tabPanel("Apprentissage", source("uiscript/uiapprentissage.R")),
     
     tabPanel("Paramétrage", source("uiscript/uiparamétrage.R")),
     
     tabPanel("Crédits",
-             "Contenu de l'onglet Crédits")
+             source("uiscript/uicredit"))
   )
 )

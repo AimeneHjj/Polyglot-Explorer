@@ -47,7 +47,6 @@ fluidPage(
         "Traduire le mot : "),
       submitButton("Valider"),
       textOutput("Réponse")
-      
       )
     )
   )
