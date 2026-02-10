@@ -5,7 +5,7 @@ sidebarLayout(
                            choices = c("", unique(dt$Categorie))),# liste déroulante catégorie
                textInput("nouvelle_categorie", "Nouvelle catégorie"), # zone d'écriture de la catégorie
                selectInput("langue", "Langue",
-                           choices = c("", unique(dt$Langue))),# liste déroulante de la langue 
+                           choices = c(unique(dt$Langue)), selected = "Anglais"),# liste déroulante de la langue 
                textInput("nouvelle_langue", "Nouvelle langue"),#zone d'écriture de la langue
                
              ),

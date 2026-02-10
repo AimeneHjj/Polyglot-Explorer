@@ -22,7 +22,10 @@ library(shiny)
 #SI valider taper alors function suivante
 #Mot dans text input mot_fr ajouter colonne 1 
 #Mot à traduire dans text input mot_et ajouter colonne 2 
-#SI " " dans input selectInput"langue" alors mot dans text input nouvelle_langue colonne 3.
+#SI "" dans input selectInput"langue" alors mot dans text input nouvelle_langue colonne 3.
+#Sinon mettre selectInput"langue" dans la colonne 3
+#SI " " dans input selectInput"catégorie_existante" alors mot dans text input nouvelle_categorie colonne 4.
+#Sinon mettre selectInput"catégorie_existante" dans la colonne 4
 
 
 
