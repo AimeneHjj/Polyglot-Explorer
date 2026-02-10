@@ -1,6 +1,6 @@
 Mots;Traduction;Langue ;Catégorie
-waiter;Serveur;français;restauration
-tap;Robinet;français;cuisine
-rope;Corde;français;materiel
-wheels;roues;français;véhicule
-beverage;boisson;français;Alimentation
+Serveur;waiter;français;restauration
+Robinet;tap;français;cuisine
+Corde;rope;français;materiel
+roues;wheels;français;véhicule
+boisson;beverage;français;Alimentation
