@@ -11,7 +11,7 @@ fluidPage(
         "Langue",
         "Langue",
         choices = c(
-          unique(dt$Langue)
+          "TOUT",unique(dt$Langue)
         )
       ),
       
@@ -33,7 +33,7 @@ fluidPage(
       selectInput(
         "categorie",
         "Catégorie",
-        choices = c(unique(dt$Categorie)
+        choices = c("TOUT",unique(dt$Categorie)
         )
       )
     ),
