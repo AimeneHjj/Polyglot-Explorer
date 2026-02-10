@@ -1,7 +1,5 @@
-fluidPage(
-    # PREMIER ONGLET : L'outil technique
-    tabPanel("Analyse Visuelle", 
-             sidebarLayout(
+
+           sidebarLayout(
                sidebarPanel(
                  h4("Paramètres"),
                  sliderInput("bins", "Niveau de détail :", 1, 30, 10),
@@ -13,4 +11,3 @@ fluidPage(
                  tableOutput("tableauApercu")
                )
              )
-    ),
