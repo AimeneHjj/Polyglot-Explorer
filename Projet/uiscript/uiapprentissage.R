@@ -11,7 +11,7 @@ fluidPage(
         "Langue",
         "Langue",
         choices = c(
-          "TOUT",unique(dt$Langue)
+          "TOUT", unique(dt$Langue)
         )
       ),
       
@@ -33,19 +33,23 @@ fluidPage(
       selectInput(
         "categorie",
         "Catégorie",
-        choices = c("TOUT",unique(dt$Categorie)
-        )
+        choices = c("TOUT", unique(dt$Categorie))
       )
     ),
     
     mainPanel(
-      textOutput("Traduction"),
-      textInput(
-        "Exo",
-        "Traduire le mot : "),
+      
+      # Scores en haut à droite du mot à traduire
+      fluidRow(
+        column(8, textOutput("Traduction")),
+        column(4, textOutput("meilleur_score"),
+               textOutput("score")
+        )
+      ),
+      
+      textInput("Exo", "Traduire le mot :"),
       submitButton("Valider"),
       textOutput("Réponse")
-      )
     )
   )
-
+)
