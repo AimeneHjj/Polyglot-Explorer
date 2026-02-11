@@ -7,6 +7,11 @@ library(shiny)
 #Si random est coché alors -> tirage aléatoire de la ligne Sinon tirage renfo 
 #print le mot choisi dans output$Traduction 
 #Mettre dasn un objet le mot tiré
+observeEvent(input$Valider, {
+function(output, input){
+  #source("le nom de votre fichier")
+  
+}
 
 ##################VÉRIFICATION################################
 
@@ -17,7 +22,9 @@ library(shiny)
 #Récupuere mot de la case 
 #SI exo == Mot de la case alors output$Réponse <- renderText(print("La réponse est : JUSTE ")  
 #SINON output$Réponse <- renderText(print("La réponse est : Fausse, la bonne réponse est", mot de la case)
-
+function(output, input){
+  #source("le nom de votre fichier")
+}
 ##################AJOUT#####################
 #SI valider taper alors function suivante
 #Mot dans text input mot_fr ajouter colonne 1 
@@ -26,8 +33,10 @@ library(shiny)
 #Sinon mettre selectInput"langue" dans la colonne 3
 #SI " " dans input selectInput"catégorie_existante" alors mot dans text input nouvelle_categorie colonne 4.
 #Sinon mettre selectInput"catégorie_existante" dans la colonne 4
-
-
+function(output, input){
+  #source("le nom de votre fichier")
+}
+})
 
 
 # Define server logic
