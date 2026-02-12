@@ -16,21 +16,21 @@ if(sens == "Thème (Étrangère -> Français)"){
 }
 output$Réponse <- renderText({
   if(answ == mot_trad){
-    output$Réponse <- renderText(cat(green("La réponse est Juste")))
+    output$Réponse <- renderText(cat(green("Juste")))
     s$score <- rv$score + 1
     if (s$score >= s$meilleur_score){
         s$meilleur_score <- s$score    
     } 
   } else{
-    output$Réponse <- renderText(cat(red("La réponse est Juste")))
+    output$Réponse <- renderText(cat(red("Faux, la réponse était : "), paste0(answ)))
     s$score <- 0
   }
 })
 
 output$meilleur_score_ui <- renderText({
-  paste0("Meilleur score : ", s$meilleur_score)
+  paste0("Meilleur score : ", s$meilleur_score) #Affichage sur meilleur score
 })
 
 output$score_ui <- renderText({
-  paste0("Score : ", s$score)
+  paste0("Score : ", s$score) # Affichage du score 
 })
