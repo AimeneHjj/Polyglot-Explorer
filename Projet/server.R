@@ -1,13 +1,14 @@
 library(shiny)
-
-function(input, session){
+shinyServer(
+function(input, output, session){
   
   observeEvent(input$go_apprentissage, {
+    print("bouton cliqué !")  # ← on va vérifier dans la console
     updateTabsetPanel(session = session, inputId = "maintab", selected = "Apprentissage")
-  })
-}
+  }, ignoreNULL = FALSE, ignoreInit = TRUE)
 
-function(input, output, session){
+
+
 ###################AFFICHER LE MOT#############################
 #Select by langue
 #Si étranger vers francais alors colonne "mot" Sinon colonne "Traduction"
@@ -53,5 +54,5 @@ function(input, output, session){
 # output$Réponse <- renderText(print("La réponse est : "))
 
 }
-
+)
 

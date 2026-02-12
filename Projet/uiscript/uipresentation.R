@@ -47,8 +47,6 @@ fluidPage(
   
   div(class = "title-header", h1("Polyglot Explorer")),
   
-  tabsetPanel(
-    tabPanel("🌟 Notre Mission",
              fluidRow(
                column(10, offset = 1,
                       br(),
@@ -85,5 +83,4 @@ fluidPage(
                
              )
     )
-  )
-)
+
