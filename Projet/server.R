@@ -24,7 +24,10 @@ function(output, input, session){
 #SI exo == Mot de la case alors output$Réponse <- renderText(print("La réponse est : JUSTE ")  
 #SINON output$Réponse <- renderText(print("La réponse est : Fausse, la bonne réponse est", mot de la case)
   source("serverscript/server_verif_mot.R")
-})
+
+##################Score#####################
+
+
 ##################AJOUT#####################
 #SI valider taper alors function suivante
 #Mot dans text input mot_fr ajouter colonne 1 
@@ -35,7 +38,7 @@ function(output, input, session){
 #Sinon mettre selectInput"catégorie_existante" dans la colonne 4
 
   #source("le nom de votre fichier")
-
+})
 
 # Define server logic
 #function(input, output) {
