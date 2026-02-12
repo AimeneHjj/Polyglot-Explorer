@@ -2,7 +2,7 @@ dt <- read.csv2("data/vocabulaire.csv", header = TRUE)
 
 s <- reactiveValues(score = 0, meilleur_score = 0)
 
-answer<-eventReactive(input$Valider,{
+answer <- reactive({
   if(input$Sens == "Étrangère -> Français"){
     rawans <- which(dt$Traduction == mot()[[1]])[1]
     answ <- as.character(dt[rawans, 1])
@@ -10,7 +10,7 @@ answer<-eventReactive(input$Valider,{
     rawans <- which(dt$Mot == output$Traduction)[1]
     answ <- as.character(dt[rawans, 2])
   }})
-output$Réponse <- renderText({
+observeEvent(input$Valider, {
   if(answer() == input$Exo){
     output$Réponse <- renderText(paste0(("Juste")))
     s$score <- s$score + 1
@@ -24,10 +24,10 @@ output$Réponse <- renderText({
 }
 )
 
-output$meilleur_score_ui <- renderText({
+output$meilleur_score <- renderText({
   paste0("Meilleur score : ", s$meilleur_score) #Affichage sur meilleur score
 })
 
-output$score_ui <- renderText({
+output$score <- renderText({
   paste0("Score : ", s$score) # Affichage du score 
 })

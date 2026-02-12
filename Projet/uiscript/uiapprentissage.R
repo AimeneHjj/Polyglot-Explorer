@@ -50,7 +50,9 @@ fluidPage(
       actionButton(
         "Valider",
         "Valider"),
-      textOutput("Réponse")
+      textOutput("Réponse"),
+      textOutput("meilleur_score"),
+      textOutput("score")
       )
     )
   )
