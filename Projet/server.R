@@ -7,31 +7,6 @@ function(input, output, session){
   source("serverscript/server_script_apprentissage.R", local = TRUE)
   source("serverscript/server_verif_mot.R", local = TRUE)
 
-###################AFFICHER LE MOT#############################
-#Select by langue
-#Si étranger vers francais alors colonne mot Sinon colonne Traduction
-#Select by catégorie
-#Si random est coché alors -> tirage aléatoire de la ligne Sinon tirage renfo 
-#print le mot choisi dans output$Traduction 
-#Mettre dasn un objet le mot tiré
-
- 
-  
-
-
-##################VÉRIFICATION################################
-
-#SI valider taper alors function suivante
-#Récuperer le mot écris par l'utilisateur dans TEXT$INPUT nom : exo
-#Récuperer coordonnées du mot tirer qui est stocké dans un objet
-#SI étranger vers francais alors -1 sur la colone sinon +1
-#Récupuere mot de la case 
-#SI exo == Mot de la case alors output$Réponse <- renderText(print("La réponse est : JUSTE ")  
-#SINON output$Réponse <- renderText(print("La réponse est : Fausse, la bonne réponse est", mot de la case)
-#source("serverscript/server_verif_mot.R")
-
-##################Score#####################
-
 
 ##################AJOUT#####################
 #SI valider taper alors function suivante
