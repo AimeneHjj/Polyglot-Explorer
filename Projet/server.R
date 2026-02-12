@@ -1,78 +1,9 @@
 library(shiny)
 shinyServer(
 function(input, output, session){
-
-  library(shiny)
   
-  data_filtre<-reactive({
-    #filtre le tableau par langue choisi
-    if (input$Langue == "TOUT"){
-      dt_filtre<-dt 
-    }
-    else {
-      dt_filtre<-dt[dt$Langue == input$Langue,]}
-    #sélectionne la colonne mot ou traduction du tableau ddéjà filtrer
-    if(input$Sens == "Étrangère -> Français"){
-      dt_reduit<-dt_filtre[,c("Traduction","Categorie")]}
-    else {
-      dt_reduit<-dt_filtre[,c("Mot","Categorie")]}
-    #Sélectionne dans le tableau réduit les mots appartenant à la bonne catégorie
-    if (input$categorie=="TOUT"){
-      dt_final<-dt_reduit}
-    else {
-      dt_final<-dt_reduit[dt_reduit$Categorie == input$categorie,]
-    }
-  })
-  #Tirage d'un mot aléatoire
-  mot<-eventReactive(input$Tirer,{
-    df<- data_filtre()
-    if (nrow(df) == 0) return(NULL)
-    if (input$Mode == "Random"){
-      ligne<- df[sample(nrow(df),1),]}
-    else {
-      ligne<- df[sample(nrow(df),1),]
-    }
-    return(ligne)
-  })
-  output$Traduction <- renderText(paste("Mot à traduire :", mot()[[1]]))
-
-  dt <- read.csv2("data/vocabulaire.csv", header = TRUE)
-  
-  s <- reactiveValues(score = 0, meilleur_score = 0)
-  
-  answer<-eventReactive(input$Valider,{
-    if(input$Sens == "Étrangère -> Français"){
-      rawans <- which(dt$Traduction == mot()[[1]])[1]
-      answ <- as.character(dt[rawans, 1])
-    }else{ 
-      rawans <- which(dt$Mot == output$Traduction)[1]
-      answ <- as.character(dt[rawans, 2])
-    }})
-    output$Réponse <- renderText({
-      if(answer() == input$Exo){
-        output$Réponse <- renderText(paste0(("Juste")))
-        s$score <- s$score + 1
-        if (s$score >= s$meilleur_score){
-          s$meilleur_score <- s$score    
-        } } 
-      else{
-        output$Réponse <- renderText(paste0(("Faux, la réponse était : "), paste0(answer())))
-        s$score <- 0
-      }
-    }
-    )
-  
-  output$meilleur_score_ui <- renderText({
-    paste0("Meilleur score : ", s$meilleur_score) #Affichage sur meilleur score
-  })
-  
-  output$score_ui <- renderText({
-    paste0("Score : ", s$score) # Affichage du score 
-  })
-  
-  
-  
-  
+  source("serverscript/server_script_apprentissage.R", local = TRUE)
+  source("serverscript/server_verif_mot.R", local = TRUE)
 
 ###################AFFICHER LE MOT#############################
 #Select by langue
