@@ -1,6 +1,4 @@
 library(shiny)
-
-function(input, output, session) {
   
   data_filtre<-reactive({
     #filtre le tableau par langue choisi
@@ -33,4 +31,3 @@ function(input, output, session) {
     return(ligne)
   })
   output$Traduction <- renderText(paste("Mot à traduire :", mot()[[1]]))
-}

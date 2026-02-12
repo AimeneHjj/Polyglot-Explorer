@@ -2,7 +2,7 @@ library(shiny)
 shinyServer(
 function(input, output, session){
   
-  observeEvent(input$go_apprentissage, {
+  eventReactive(input$go_apprentissage, {
     print("bouton cliqué !")  # ← on va vérifier dans la console
     updateTabsetPanel(session = session, inputId = "maintab", selected = "Apprentissage")
   })
@@ -18,7 +18,7 @@ function(input, output, session){
 #Mettre dasn un objet le mot tiré
   observeEvent(input$Valider, {
 
-  #source("le nom de votre fichier")
+  source("serverscript/server_script_apprentissage.R")
   
 
 
