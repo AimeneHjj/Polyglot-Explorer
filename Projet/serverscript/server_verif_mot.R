@@ -1,28 +1,39 @@
-dt <- read.csv2("data/vocabulaire.csv", header = TRUE)
-
 s <- reactiveValues(score = 0, meilleur_score = 0)
+reponse_text <- reactiveVal("")
 
 answer <- reactive({
   if(input$Sens == "Étrangère -> Français"){
     rawans <- which(dt$Traduction == mot()[[1]])[1]
     answ <- as.character(dt[rawans, 1])
   }else{ 
-    rawans <- which(dt$Mot == output$Traduction)[1]
+    rawans <- which(dt$Mot == mot()[[1]])[1]
     answ <- as.character(dt[rawans, 2])
   }})
 observeEvent(input$Valider, {
+  idx <- mot_index()
+  
   if(answer() == input$Exo){
-    output$Réponse <- renderText(paste0(("Juste")))
+    reponse_text("Juste")
     s$score <- s$score + 1
     if (s$score >= s$meilleur_score){
       s$meilleur_score <- s$score    
-    } } 
-  else{
-    output$Réponse <- renderText(paste0(("Faux, la réponse était : "), paste0(answer())))
-    s$score <- 0
+    }
+      p <- poids()
+      p[idx] <- max(1, p[idx] - 1)
+      poids(p)
+    }else{
+      reponse_text(paste0("Faux, la réponse était : ", answer()))
+      s$score <- 0
+      p <- poids()
+      p[idx] <- p[idx] + 2
+      poids(p)
+    
   }
-}
-)
+})
+
+output$Réponse <- renderText({
+  reponse_text()
+})
 
 output$meilleur_score <- renderText({
   paste0("Meilleur score : ", s$meilleur_score) #Affichage sur meilleur score

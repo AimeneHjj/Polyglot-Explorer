@@ -1,12 +1,20 @@
 library(shiny)
+
 shinyServer(
+
 function(input, output, session){
-  observeEvent(input$go_apprentissage,{
-    updateTabsetPanel(inputId = "maintab", selected = "Apprentissage")
-  })
+  
+  dt <- read.csv2("data/vocabulaire.csv", header = TRUE)
+  
+  poids <- reactiveVal(rep(1, nrow(dt)))
+  mot_index <- reactiveVal(NULL)
+  
   source("serverscript/server_script_apprentissage.R", local = TRUE)
   source("serverscript/server_verif_mot.R", local = TRUE)
 
+  observeEvent(input$go_apprentissage,{
+    updateTabsetPanel(inputId = "maintab", selected = "Apprentissage")
+  })
 
 ##################AJOUT#####################
 #SI valider taper alors function suivante
@@ -18,12 +26,12 @@ function(input, output, session){
 #Sinon mettre selectInput"catégorie_existante" dans la colonne 4
 
   #source("le nom de votre fichier")
-})
+
 
 # Define server logic
 #function(input, output) {
 #output$Traduction <- renderText(print("Mot à traduire : "))
 #output$Réponse <- renderText(print("La réponse est : "))
 
-
+})
 

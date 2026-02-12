@@ -24,8 +24,23 @@ mot<-eventReactive(input$Tirer,{
   if (input$Mode == "Random"){
     ligne<- df[sample(nrow(df),1),]}
   else {
-    ligne<- df[sample(nrow(df),1),]
+    indices <- as.integer(rownames(df))
+    p <- poids()[indices]
+    ligne_int <- sample(nrow(df), 1, prob = p)
+    ligne<- df[ligne_int, ]
+    mot_index(indices[ligne_int])
   }
   return(ligne)
 })
-output$Traduction <- renderText(paste("Mot à traduire :", mot()[[1]]))
+
+output$Traduction <- renderText({
+  req(mot())
+  if(input$Sens == "Étrangère -> Français"){
+    paste("Mot à traduire :", mot()[[1]])
+  } else {
+    rawans <- which(dt$Mot == mot()[[1]])[1]
+    langue_mot <- as.character(dt[rawans, "Langue"])
+    paste0("Mot à traduire : ", mot()[[1]], " (", langue_mot, ")")
+    
+  }
+})
