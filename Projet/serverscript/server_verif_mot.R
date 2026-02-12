@@ -9,10 +9,10 @@ s <- reactiveValues(score = 0, meilleur_score = 0)
 
 if(sens == "Thème (Étrangère -> Français)"){
   rawans <- which(dt$Traduction == mot_uti)[1]
-  answ <- dt[rawans, 1]
+  answ <- as.character(dt[rawans, 1])
 }else{ 
   rawans <- which(dt$Mot == mot_uti)[1]
-  answ <- dt[rawans, 2]
+  answ <- as.character(dt[rawans, 2])
 }
 output$Réponse <- renderText({
   if(answ == mot_trad){
