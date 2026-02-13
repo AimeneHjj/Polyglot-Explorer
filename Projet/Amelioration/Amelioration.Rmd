@@ -1,0 +1,36 @@
+---
+title: "Amélioration"
+author: "Groupe 1"
+date: "2026-02-13"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Améliorations
+
+### Sur la partie apprentissage
+
+#### À intégrer dans l'onglet paramétrage
+- Ajout d'une fonction pour supprimer des mots enregistrés dans la base de données
+- Ajout d'une possibilité d'importer des fichiers avec des mots de traduction
+
+#### Contrôle de saisie
+- Si pas de mot écrit dans les zones de saisie, afficher un message d'erreur
+- Faire attention aux majuscules/minuscules (les ignorer)
+- Réinitialiser la zone de saisie quand on tire un nouveau mot
+- Réinitialiser le mot tiré lorsqu'il y a modification des paramètres dans le side panel
+
+#### Création de profil utilisateur
+- Conserver une mémoire des scores et des erreurs par mot (mode Renfo)
+
+### Forme
+- Améliorer la mise en forme des onglets pour avoir une ergonomie et un design plus attractif
+
+### Options supplémentaires
+
+#### Autres jeux
+- Texte à trous dans différentes langues
+- Quiz de culture (QCM)
