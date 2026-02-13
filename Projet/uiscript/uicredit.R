@@ -16,10 +16,10 @@ fluidRow(
            h4("L'Équipe de Création", style = "margin-top: 0; color: #2c3e50;"),
            p("Quatre étudiant en ingénieurie a l'ISARA unis pour faciliter votre apprentissage :"),
            tags$ul(
-             tags$li(strong("Louis ROMERO")),
-             tags$li(strong("Aïmène HEJJAJ")),
-             tags$li(strong("Amir VELLUT")),
-             tags$li(strong("Brayane SIMO"))
+             tags$li(strong("Louis ROMERO (lromero@etu.isara.fr)")),
+             tags$li(strong("Aïmène HEJJAJ (ahejjaj@etu.isara.fr)")),
+             tags$li(strong("Amir VELLUT (avellut@etu.isara.fr)")),
+             tags$li(strong("Brayane SIMO (bsimo@etu.isara.fr)"))
            )
          )
   )
