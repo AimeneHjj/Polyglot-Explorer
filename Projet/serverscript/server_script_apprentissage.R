@@ -5,7 +5,7 @@ data_filtre<-reactive({
   }
   else {
     dt_filtre<-dt[dt$Langue == input$Langue,]}
-  #sélectionne la colonne mot ou traduction du tableau ddéjà filtrer
+  #sélectionne la colonne mot ou traduction du tableau déjà filtrer
   if(input$Sens == "Étrangère -> Français"){
     dt_reduit<-dt_filtre[,c("Traduction","Categorie")]}
   else {
@@ -23,6 +23,7 @@ mot<-eventReactive(input$Tirer,{
   if (nrow(df) == 0) return(NULL)
   if (input$Mode == "Random"){
     ligne<- df[sample(nrow(df),1),]}
+  #Creation colonne indice pour savoir les taux de réussite de cahque mot et faire le tirage en fonction de ce taux si mode "renfo"
   else {
     indices <- as.integer(rownames(df))
     p <- poids()[indices]
@@ -32,7 +33,7 @@ mot<-eventReactive(input$Tirer,{
   }
   return(ligne)
 })
-
+#Ecris le mot à traduire et la langue dans laquelle traduire si le mot a traduire est en français
 output$Traduction <- renderText({
   req(mot())
   if(input$Sens == "Étrangère -> Français"){
